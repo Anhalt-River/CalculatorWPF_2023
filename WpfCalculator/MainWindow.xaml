@@ -1,0 +1,128 @@
+﻿<Window x:Class="WpfCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCalculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button x:Name="ViewBut" Content="View" Width="47" Background="DarkRed"/>
+                <Button x:Name="CorrectionBut" Content="Correction" Width="80" Background="DarkRed"/>
+                <Button x:Name="ReferenceBut" Content="Reference" Width="74" Background="DarkRed"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="OldFieldBlock" Text="0" FontSize="10" TextAlignment="Right"/>
+                <TextBlock x:Name="OutputFieldBlock" Text="0" FontSize="25" TextAlignment="Right"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10">
+                    <StackPanel x:Name="MeasureCheckPanel" Orientation="Horizontal" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <RadioButton GroupName="MeasureCheck" Content="Градусы" VerticalAlignment="Center" Checked="RadioDEGButton_Checked"></RadioButton>
+                        <RadioButton GroupName="MeasureCheck" Content="Радианы" VerticalAlignment="Center" Checked="RadioRADButton_Checked"></RadioButton>
+                        <RadioButton GroupName="MeasureCheck" Content="Грады" VerticalAlignment="Center" Background="DarkRed"></RadioButton>
+                    </StackPanel>
+ 
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="  " Background="DarkRed"/>
+                        <Button Content="Inv" Background="DarkRed"/>
+                        <Button x:Name="LogEBut" Content="Ln" Click="LogEBut_Click"/>
+                        <Button Content="( " Background="DarkRed"/>
+                        <Button Content=" )" Background="DarkRed"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Int" Background="DarkRed"/>
+                        <Button x:Name="ArcSinusBut" Content="sinh" Click="ArcSinusBut_Click"/>
+                        <Button x:Name="SinusBut" Content="sin" Click="SinusBut_Click"/>
+                        <Button x:Name="DegreeOfTwoBut" Content="x²" Click="DegreeOfTwoBut_Click"/>
+                        <Button x:Name="FactorialBut" Content="n!" Click="FactorialBut_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="dms" Background="DarkRed"/>
+                        <Button x:Name="ArcCosinusBut" Content="cosh" Click="ArcCosinusBut_Click"/>
+                        <Button x:Name="CosinusBut" Content="cos" Click="CosinusBut_Click"/>
+                        <Button x:Name="DegreeOfValueBut" Content="x^y" Click="DegreeOfValueBut_Click"/>
+                        <Button x:Name="RootOfValueBut" Content="(y)√x" Click="RootOfValueBut_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="PiBut" Content="π" Click="PiBut_Click"/>
+                        <Button x:Name="ArcTangentBut" Content="tanh" Click="ArcTangentBut_Click"/>
+                        <Button x:Name="TangentBut" Content="tan" Click="TangentBut_Click"/>
+                        <Button x:Name="DegreeOfThreeBut" Content="x³" Click="DegreeOfThreeBut_Click"/>
+                        <Button x:Name="RootOfThreeBut" Content="∛x" Click="RootOfThreeBut_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="F-E" Background="DarkRed"/>
+                        <Button x:Name="ExpBut" Content="Exp" Click="ExpBut_Click"/>
+                        <Button x:Name="ModDivisionBut" Content="Mod" Click="ModDivisionBut_Click"/>
+                        <Button x:Name="Log10But" Content="Log" Click="Log10But_Click"/>
+                        <Button x:Name="DegreeForTenBut" Content="10^x" Click="DegreeForTenBut_Click"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="MC" Background="DarkRed"/>
+                        <Button Content="MR" Background="DarkRed"/>
+                        <Button Content="MS" Background="DarkRed"/>
+                        <Button Content="M+" Background="DarkRed"/>
+                        <Button Content="M-" Background="DarkRed"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="DeleteSymbolBut" Content="Del" Click="DeleteSymbolBut_Click"/>
+                        <Button x:Name="DeleteNowBut" Content="CE" Click="DeleteNowBut_Click"/>
+                        <Button x:Name="DeleteAllBut" Content="C" Click="DeleteAllBut_Click"/>
+                        <Button x:Name="ReverseSignBut" Content="±" Click="ReverseSignBut_Click"/>
+                        <Button x:Name="RootBut" Content="√" Click="RootBut_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="7" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                        <Button Content="8" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                        <Button Content="9" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                        <Button x:Name="DivisionBut" Content="/" Click="DivisionBut_Click"/>
+                        <Button x:Name="DivWithoutRemainderBut" Content="%" Click="PercentageOfTwoBut_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="4" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                        <Button Content="5" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                        <Button Content="6" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                        <Button x:Name="MultiplicateBut" Content="*" Click="MultiplicateBut_Click"/>
+                        <Button x:Name="ReverseValueBut" Content="1/x" Click="ReverseValueBut_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Content="1" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                                <Button Content="2" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                                <Button Content="3" Click="ButtonCifrus_Click" Background="#FFF5F4F4"/>
+                                <Button x:Name="MinusBut" Content="-" Click="MinusBut_Click"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Content="0" Width="70" Click="ButtonCifrus_Click"/>
+                                <Button x:Name="CommaBut" Content="," Click="ButtonComma_Click"/>
+                                <Button x:Name="PlusBut" Content="+" Click="PlusBut_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Button x:Name="EqualBut" Content="=" Height="70" Click="EqualBut_Click"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
